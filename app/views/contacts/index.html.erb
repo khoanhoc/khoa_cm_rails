@@ -1,0 +1,33 @@
+<h2>Quản lý danh bạ</h2>
+<%= link_to 'Thêm danh bạ', new_contact_path, class: 'btn btn-default btn-sm' %>
+<table class="table table-striped">
+  <thead>
+    <th>Họ tên</th>
+    <th>Điện thoại</th>
+    <th>Địa chỉ</th>
+    <th>Ghi chú</th>
+    <th width="50"></th>
+    <th width="50"></th>
+    <th width="50"></th>
+  </thead>
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.phone %></td>
+        <td><%= contact.address %></td>
+        <td><%= contact.note %></td>
+        <td>
+          <%= button_to 'Xem', contact_path(contact), class: 'btn btn-default btn-sm' %>         
+        </td>
+        <td>
+          <%= button_to 'Sửa', edit_contact_path(contact), class: 'btn btn-warning btn-sm' %>          
+        </td>
+        <td>
+          <%= button_to 'Xoá', contact_path(contact), method: :delete, data: { confirm: 'Bạn có muốn xoá danh bạ này không?' }, class: 'btn btn-danger btn-sm' %>
+        </td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @contacts %>

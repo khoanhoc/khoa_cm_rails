@@ -1,0 +1,9 @@
+<div class="article-content">
+  <h2>Danh bạ: <%= @contact.name %></h2>
+  <%= simple_format @contact.phone %>
+  <%= simple_format @contact.address %>
+  <%= simple_format @contact.note %>
+</div>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>
